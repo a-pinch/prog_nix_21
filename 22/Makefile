@@ -1,2 +1,2 @@
 exe:	solution.c
-	gcc solution.c -fPIC -o hello
+	gcc solution.c -ldl -fPIC -o solution 
