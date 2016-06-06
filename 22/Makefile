@@ -1,2 +1,2 @@
 exe:	solution.c
-	gcc solution.c -ldl -fPIC -o solution 
+	gcc solution.c  -Wl,-rpath=. -ldl -fPIC -o solution 
