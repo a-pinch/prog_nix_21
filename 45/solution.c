@@ -7,7 +7,7 @@ int main(int argc, char * argv[])
     char dummy;
     FILE * f;
     f = fopen("/proc/self/stat", "r");
-    fscanf(f, "%s %s %s %d", &dummy, &dummy, &dummy, &ppid); 
+    fscanf(f, "%*d %*s %*c %d", &ppid); 
     fclose(f);
     printf("%d\n", ppid);
     return 0;
