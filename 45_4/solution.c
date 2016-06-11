@@ -10,7 +10,7 @@ int getppid(char* chpid){
     if(f){
         fscanf(f, "%d %*s %*c %d %d", &pid, &ppid, &tgid); 
         fclose(f);
-        return tgid != pid ? tgid : ppid;
+        return ppid;
     }
     else {
         return -1;
@@ -25,7 +25,7 @@ int main(int argc, char * argv[]){
             printf("%s\n",pid);
             sprintf(pid, "%d", ppid);
         }
-        if(ppid==1) printf("%d\n",ppid);
+        if(ppid==1) printf("%s\n%d\n",pid,ppid);
     }
         
     return 0;
