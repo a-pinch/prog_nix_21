@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
-int getppid(char* pid){
+int getppid(char* chpid){
     char path[80];
-    int ppid;
+    int pid, ppid, tgid;
     FILE * f;
-    sprintf(path, "/proc/%s/stat", pid);
+    sprintf(path, "/proc/%s/stat", chpid);
     f = fopen(path, "r");
     if(f){
-        fscanf(f, "%*d %*s %*c %d", &ppid); 
+        fscanf(f, "%d %*s %*c %d %d", &pid, &ppid, &tgid); 
         fclose(f);
-        return ppid;
+        return tgid != pid ? tgid : ppid;
     }
     else {
         return -1;
